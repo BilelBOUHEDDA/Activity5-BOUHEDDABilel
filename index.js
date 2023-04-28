@@ -13,7 +13,7 @@ app.use(express.json());
 //endpoint to get all users. In this endpoint users are allowed to query using gender and isVerified field.
 app.get('/api/users', async (req, res) => {
   //getting the data from filesystem
-  let data = JSON.parse(fs.readFileSync(path.join(__dirname, 'database/data.json'), 'utf-8'));
+  let data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8'));
 
   //if there is no query then we are sending the whole data to the user
   if (!Object.keys(req.params).length && !Object.keys(req.query).length) {
@@ -46,7 +46,7 @@ app.get('/api/users/stream', async (req, res) => {
     read() {
       try {
         //getting the data from our file and pushing the chunks to the pipe
-        let data = fs.readFileSync(path.join(__dirname, 'database/data.json'), 'utf-8');
+        let data = fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8');
         this.push(data);
         this.push(null);
       } catch (error) {
