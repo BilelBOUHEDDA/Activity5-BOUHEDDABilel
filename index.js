@@ -10,7 +10,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 
-//endpoint to get all users. In this endpoint users are allowed to query using gender and isVerified field.
+//endpoint to get all users. In this API users are allowed to query using gender and isVerified field.
 app.get('/api/users', async (req, res) => {
   //getting the data from filesystem
   let data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data.json'), 'utf-8'));
